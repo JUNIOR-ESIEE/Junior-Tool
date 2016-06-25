@@ -1,3 +1,7 @@
+junior_website:
+    resource: "@JuniorWebsiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
 junior_etude:
     resource: "@JuniorEtudeBundle/Resources/config/routing.yml"
     prefix:   /

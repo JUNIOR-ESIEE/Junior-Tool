@@ -1,0 +1,62 @@
+@mixin button-full($bg-color,$text-color) {
+	color:$text-color;
+	border: $bg-color solid 3px;
+	background: $bg-color;
+	&:hover, &:focus, &:active {
+		color:$text-color;
+		border: $bg-color solid 3px;
+		background: $bg-color;		
+		box-shadow: 0 0 15px 2.5px transparentize($bg-color,0.75);
+	}
+}
+
+@mixin button-ghost($color) {
+	$faded-color:transparentize($color,0.3);
+	color:$faded-color;
+	border: $faded-color solid 3px;
+	background-color: transparent;
+	&:hover, &:focus {
+		color: $color;
+		border: $color solid 3px;
+		background-color: transparent;
+		box-shadow: 0 0 15px 2.5px transparentize($color,0.85);
+		
+	}
+	&:active {
+		transform: scale(1.05);
+	}
+}
+
+.button { //2BVROY
+	font-weight: 600;
+	letter-spacing: .1rem;
+	font-size: 1.15rem;
+	line-height: 1.4;
+	
+	padding: 1rem 2rem;
+	margin: 1.5rem;
+	border-radius: 9999px;
+	
+	transition: border .2s, background .2s, color .2s, box-shadow .3s, transform .1s;
+	&:hover, &:focus, &:active {
+		outline: none;
+	}
+}
+
+.button-cta {
+	text-transform: uppercase;
+	@include button-full($primary-color,$light-text-color);
+}
+
+.button-ghost-primary {
+	@include button-ghost($primary-color);
+}
+
+.button-ghost-light {
+	@include button-ghost($light-text-color);
+}
+.button-noshadow {
+	&:hover, &:focus, &:active {
+		box-shadow: none;
+	}
+}

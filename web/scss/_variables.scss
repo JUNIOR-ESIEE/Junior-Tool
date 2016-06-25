@@ -1,0 +1,37 @@
+// Base Variables
+$primary-color: #9351e5;
+$secondary-color: #ef468b;
+
+$light-bg-color:#F9F9FA;
+$dark-bg-color:#232937;
+
+$light-text-color:#FFF;
+$dark-text-color:#323A4E;
+$dark-paragraph-color: #707583;
+$light-paragraph-color: #C2C4CA;
+
+$alert-color: #FF435E;
+$success-color: #27C87A;
+$warning-color: #ffc543;
+$info-color: #1FD4FF;
+
+// Foundation Variables
+$body-font-family: "Source Sans Pro", sans-serif;
+$anchor-font-color: inherit;
+$anchor-font-color-hover: inherit;
+$header-font-color: $dark-text-color;
+$subheader-font-color: $dark-text-color;
+$body-font-color:$dark-paragraph-color;
+$row-width: rem-calc(1170*1.1);
+
+// Layout
+$navigation-height: 6rem;
+$navigation-height-padding: $navigation-height * 0.2;
+$navigation-text-color: $dark-text-color;
+$navigation-bg-color: $light-bg-color;
+$navigation-depth: 2;
+$navigation-ontop-text-color: transparentize($light-text-color, 0.25);
+$navigation-ontop-bg-color: transparentize($light-bg-color, 1);
+
+//Home
+$home-hero-bg: $dark-bg-color;

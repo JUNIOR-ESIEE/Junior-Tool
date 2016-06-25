@@ -1,0 +1,3 @@
+junior_website_homepage:
+    path:     /
+    defaults: { _controller: JuniorWebsiteBundle:Default:index }

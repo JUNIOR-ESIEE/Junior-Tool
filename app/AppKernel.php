@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             // Project bundles
             new Junior\EtudeBundle\JuniorEtudeBundle(),
+            new Junior\WebsiteBundle\JuniorWebsiteBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 

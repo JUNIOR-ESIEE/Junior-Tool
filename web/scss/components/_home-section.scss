@@ -1,0 +1,20 @@
+.home-section {
+	padding: 4rem 0;
+	background: $light-bg-color;
+	p {
+		text-align: justify;
+		font-size: 1.15rem;
+	}
+	&.inverse {
+		background: $dark-bg-color;
+		p {
+			color: $light-paragraph-color;
+		}
+		h1,h2 {
+			color: $light-text-color;
+		}
+		h1 {
+			margin-bottom: 4rem;
+		}
+	}
+}

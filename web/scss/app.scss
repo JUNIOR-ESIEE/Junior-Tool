@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+// Resetting & Tools
+@import "normalize";
+@import 'foundation/functions';
+
+// Import all the settings
+@import "variables";
+
+// Get the foundation parts we need
+@import "foundation/components/grid";
+@import "foundation/components/block-grid";
+@import "foundation/components/buttons";
+@import "foundation/components/clearing";
+@import "foundation/components/inline-lists";
+@import "foundation/components/type";
+@import "foundation/components/visibility";
+
+// And our code
+
+@import "helpers/misc";
+@import "helpers/material-shadow";
+@import "helpers/responsive-type";
+
+@import "components/alert-boxes";
+@import "components/buttons";
+@import "components/svg-filters";
+@import "components/svg-competencies";
+@import "components/type";
+@import "components/home-section";
+@import "components/dividers";
+@import "components/forms";
+@import "components/popup";
+
+@import "layout/navigation";
+@import "layout/footer";
+@import "layout/contact";
+
+@import "pages/home";
+@import "pages/process";
