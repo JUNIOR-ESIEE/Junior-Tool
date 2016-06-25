@@ -90,6 +90,11 @@ sonata_block:
         sonata.block.service.text: # used to if you plan to use Sonata user routes
         # ...
 
+# Sonata admin
+sonata_admin:
+    title:      Junior ESIEE
+    title_logo: images/logo.png
+
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
