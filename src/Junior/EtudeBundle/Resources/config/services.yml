@@ -2,3 +2,15 @@ services:
 #    junior_etude.example:
 #        class: Junior\EtudeBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+    junior_etude.admin:
+        class: Junior\EtudeBundle\Admin\EtudeAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Suivi d'étude"
+              label: "Étude"
+              label_catalogue: "JuniorEtudeBundle"
+        arguments:
+            - ~
+            - Junior\EtudeBundle\Entity\Etude
+            - ~
