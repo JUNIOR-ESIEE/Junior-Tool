@@ -1,3 +1,7 @@
-junior_website_homepage:
+junior_homepage:
     path:     /
     defaults: { _controller: JuniorWebsiteBundle:Default:index }
+
+junior_process:
+    path:     /process
+    defaults: { _controller: JuniorWebsiteBundle:Default:process }
