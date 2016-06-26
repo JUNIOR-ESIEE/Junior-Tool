@@ -138,11 +138,29 @@ sonata_media:
                 - sonata.media.provider.image
                 - sonata.media.provider.file
                 - sonata.media.provider.vimeo
-
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
+        scopeStatement:
+            download:
+                strategy: sonata.media.security.connected_strategy
 
+            providers:
+                - sonata.media.provider.file
+
+            formats:
+                big:   { width: 500 , quality: 90}
+                small: { width: 90 , quality: 95}
+        graphicCharter:
+            download:
+                strategy: sonata.media.security.connected_strategy
+
+            providers:
+                - sonata.media.provider.file
+
+            formats:
+                big:   { width: 500 , quality: 90}
+                small: { width: 90 , quality: 95}
     cdn:
         server:
             path: "%hostname%/uploads/media" # http://media.sonata-project.org/
