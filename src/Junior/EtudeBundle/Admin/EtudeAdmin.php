@@ -36,6 +36,8 @@ class EtudeAdmin extends Admin
             ->add('title')
             ->add('deadline')
             ->add('state')
+            ->add('scopeStatement')
+            ->add('graphicCharter')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -133,6 +135,8 @@ class EtudeAdmin extends Admin
             ->add('commercial')
             ->add('rbu')
             ->add('student')
+            ->add('scopeStatement')
+            ->add('graphicCharter')
         ;
     }
 
