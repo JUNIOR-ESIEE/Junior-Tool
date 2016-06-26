@@ -117,6 +117,18 @@ class Etude
      */
     private $commercial;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $scopeStatement;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $graphicCharter;
+
     public function __construct()
     {
         $this->deposit = new \DateTime();
@@ -452,6 +464,16 @@ class Etude
     }
 
     /**
+     * Get valid states
+     *
+     * @return array
+     */
+    public static function getStates()
+    {
+        return array(Etude::STATE_OPENED, Etude::STATE_WAITING_INFORMATION, Etude::STATE_ABORTED, Etude::STATE_CLOSED, Etude::STATE_VALID);
+    }
+
+    /**
      * Set commercialEnrollmentOpen
      *
      * @param boolean $commercialEnrollmentOpen
@@ -569,5 +591,53 @@ class Etude
     public function getCommercial()
     {
         return $this->commercial;
+    }
+
+    /**
+     * Set scopeStatement
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $scopeStatement
+     *
+     * @return Etude
+     */
+    public function setScopeStatement(\Application\Sonata\MediaBundle\Entity\Media $scopeStatement = null)
+    {
+        $this->scopeStatement = $scopeStatement;
+
+        return $this;
+    }
+
+    /**
+     * Get scopeStatement
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getScopeStatement()
+    {
+        return $this->scopeStatement;
+    }
+
+    /**
+     * Set graphicCharter
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $graphicCharter
+     *
+     * @return Etude
+     */
+    public function setGraphicCharter(\Application\Sonata\MediaBundle\Entity\Media $graphicCharter = null)
+    {
+        $this->graphicCharter = $graphicCharter;
+
+        return $this;
+    }
+
+    /**
+     * Get graphicCharter
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getGraphicCharter()
+    {
+        return $this->graphicCharter;
     }
 }

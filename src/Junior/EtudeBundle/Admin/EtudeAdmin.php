@@ -50,29 +50,66 @@ class EtudeAdmin extends Admin
     {
         $formMapper
             ->with('Client')
-                ->add('lastname')
-                ->add('firstname')
-                ->add('company')
-                ->add('phone')
-                ->add('email')
+                ->add('lastname', null, array(
+                    'label' => 'Nom de famille',
+                ))
+                ->add('firstname', null, array(
+                    'label' => 'Prénom',
+                ))
+                ->add('company', null, array(
+                    'label' => 'Entreprise',
+                ))
+                ->add('phone', null, array(
+                    'label' => 'Téléphone',
+                ))
+                ->add('email', null, array(
+                    'label' => 'Email',
+                ))
             ->end()
             ->with('Projet')
-                ->add('deposit', 'date')
-                ->add('title')
-                ->add('description')
-                ->add('deadline', 'date')
+                ->add('deposit', 'date', array(
+                    'label' => 'Date de dépôt',
+                ))
+                ->add('title', null, array(
+                    'label' => "Titre de l'étude",
+                ))
+                ->add('description', null, array(
+                    'label' => 'Description',
+                ))
+                ->add('deadline', 'date', array(
+                    'label' => 'Date de fin',
+                ))
+                ->add('scopeStatement', 'sonata_media_type', array(
+                    'required'      => false,
+                    'provider'      => 'sonata.media.provider.file',
+                    'context'       => 'scopeStatement',
+                    'new_on_update' => false,
+                    'label'         => 'Cahier des charges',
+                ))
+                ->add('graphicCharter', 'sonata_media_type', array(
+                    'required'      => false,
+                    'provider'      => 'sonata.media.provider.file',
+                    'context'       => 'graphicCharter',
+                    'new_on_update' => false,
+                    'label'         => 'Charte graphique',
+                ))
             ->end()
             ->with('Suivi')
-                ->add('state')
+                ->add('state', null, array(
+                    'label' => 'État en cours',
+                ))
                 ->add('commercial', 'sonata_type_model_list', array(
+                    'label' => 'Commercial',
                     'required'  => false,
                 ))
                 ->add('rbu', 'sonata_type_model_list', array(
+                    'label' => 'RBU',
                     'required'  => false,
                 ))
             ->end()
             ->with('Réalisation')
                 ->add('student', 'sonata_type_model_list', array(
+                    'label' => 'Étudiant',
                     'required'  => false,
                 ))
             ->end()
