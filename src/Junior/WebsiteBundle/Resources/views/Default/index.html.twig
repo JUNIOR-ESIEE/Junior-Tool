@@ -6,8 +6,14 @@
 		<div class="row">
 			{% if success is defined %}
 				<div data-alert class="alert-box success round">
-				  	<h3><b>Merci !</b> Nous avons bien reçu votre message et reviendrons vers vous très bientôt.</h3>
-				  	<a href="#" class="close">&times;</a>
+				  	<h3 style="color: #fff;"><b>Merci !</b> Nous avons bien reçu votre message et reviendrons vers vous très bientôt.</h3>
+				  	<a href="#" class="close" style="color: #fff;">&times;</a>
+				</div>
+			{% endif %}
+			{% if error is defined %}
+				<div data-alert class="alert-box alert round">
+				  	<h3 style="color: #fff;"><b>Oups !</b> Une erreur est survenue lors de votre envoi.</h3>
+				  	<a href="#" class="close" style="color: #fff;">&times;</a>
 				</div>
 			{% endif %}
 			<h1>Vos projets,<br>nos étudiants.</h1>
