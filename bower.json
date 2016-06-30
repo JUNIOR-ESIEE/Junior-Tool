@@ -1,6 +1,7 @@
 {
   "name": "zf5_project",
   "dependencies": {
+  	"jquery": "= 2.2.4",
     "foundation": "zurb/bower-foundation",
     "gsap": "~1.17.0",
     "ScrollMagic": "~2.0.5"
