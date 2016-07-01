@@ -8,7 +8,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: fr
+    locale: en
 
 framework:
     #esi:             ~
@@ -89,12 +89,59 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text: # used to if you plan to use Sonata user routes
         sonata.admin.block.search_result:
+        sonata.admin.block.stats:
         # ...
 
 # Sonata admin
 sonata_admin:
     title:      Junior ESIEE
     title_logo: images/logo.png
+    templates:
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        blocks:
+            -
+                class: col-lg-3 col-xs-6
+                position: top
+                type: sonata.admin.block.stats
+                settings:
+                    code: junior_etude.admin
+                    icon: fa-tasks
+                    text: Etudes sur le site
+                    color: bg-blue
+            -
+                class: col-lg-3 col-xs-6
+                position: top
+                type: sonata.admin.block.stats
+                settings:
+                    code: junior_etude.admin
+                    icon: fa-envelope-o
+                    text: Nouvelles études
+                    color: bg-green
+                    filters:
+                        state : { value : state_waiting_information }
+            -
+                class: col-lg-3 col-xs-6
+                position: top
+                type: sonata.admin.block.stats
+                settings:
+                    code: junior_etude.admin
+                    icon: fa-briefcase
+                    text: Sans commercial
+                    color: bg-red
+                    filters:
+                        commercial : { value : null }
+            -
+                class: col-lg-3 col-xs-6
+                position: top
+                type: sonata.admin.block.stats
+                settings:
+                    code: junior_etude.admin
+                    icon: fa-pencil
+                    text: Sans réalisateur
+                    color: bg-red
+                    filters:
+                        student : { value : null }
     security:
         handler: sonata.admin.security.handler.acl
         # acl security information
