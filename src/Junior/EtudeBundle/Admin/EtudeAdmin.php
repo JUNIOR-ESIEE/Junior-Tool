@@ -24,7 +24,9 @@ class EtudeAdmin extends Admin
             ->add('deadline')
             ->add('state')
             ->add('commercial')
+            ->add('commercialEnrollmentOpen')
             ->add('student')
+            ->add('studentsEnrollmentOpen')
         ;
     }
 
@@ -142,6 +144,22 @@ class EtudeAdmin extends Admin
             ->add('scopeStatement')
             ->add('graphicCharter')
         ;
+    }
+
+    public function prePersist($object)
+    {
+        if($object->getCommercial() == NULL) $object->setCommercialEnrollmentOpen(1);
+        if($object->getCommercial() != NULL) $object->setCommercialEnrollmentOpen(0);
+        if($object->getStudent() == NULL) $object->setStudentsEnrollmentOpen(1);
+        if($object->getStudent() != NULL) $object->setStudentsEnrollmentOpen(0);
+    }
+
+    public function preUpdate($object)
+    {
+        if($object->getCommercial() == NULL) $object->setCommercialEnrollmentOpen(1);
+        if($object->getCommercial() != NULL) $object->setCommercialEnrollmentOpen(0);
+        if($object->getStudent() == NULL) $object->setStudentsEnrollmentOpen(1);
+        if($object->getStudent() != NULL) $object->setStudentsEnrollmentOpen(0);
     }
 
     public function toString($object)

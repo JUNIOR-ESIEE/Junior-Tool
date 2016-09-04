@@ -92,12 +92,12 @@ class Etude
     /**
      * @ORM\Column(type="boolean")
      */
-    private $commercialEnrollmentOpen = false;
+    private $commercialEnrollmentOpen = true;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $studentsEnrollmentOpen = false;
+    private $studentsEnrollmentOpen = true;
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")

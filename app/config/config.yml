@@ -130,7 +130,7 @@ sonata_admin:
                     text: Sans commercial
                     color: bg-red
                     filters:
-                        commercial : { value : null }
+                        commercialEnrollmentOpen : { value : 1 }
             -
                 class: col-lg-3 col-xs-6
                 position: top
@@ -141,7 +141,7 @@ sonata_admin:
                     text: Sans réalisateur
                     color: bg-red
                     filters:
-                        student : { value : null }
+                        studentsEnrollmentOpen : { value : 1 }
     security:
         handler: sonata.admin.security.handler.acl
         # acl security information
