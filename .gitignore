@@ -31,6 +31,7 @@
 /web/bower_components/
 /web/bundles/
 /web/css/
+/web/uploads/*
 /web/uploads/media/*
 !web/uploads/media/.gitkeep
 
