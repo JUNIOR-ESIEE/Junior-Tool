@@ -102,7 +102,6 @@ $(document).ready(function () { // Navbar
 		e.preventDefault();
 		TweenLite.to(window, 1.5, {scrollTo:{y:$("#contact").offset().top}, ease:Power2.easeOut});
 	}
-	console.log("pid")
 	$(".toContact").click(scrollToContact);	
 
 	var scrollToHome = function(e){
@@ -131,7 +130,6 @@ $(document).ready(function () { // Navbar
 	{
 		var label	 = input.nextElementSibling,
 			labelVal = label.innerHTML;
-		console.log(label)
 		input.addEventListener( 'change', function( e )
 		{
 			var fileName = '';
