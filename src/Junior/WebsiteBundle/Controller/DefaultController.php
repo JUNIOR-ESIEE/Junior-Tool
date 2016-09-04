@@ -40,6 +40,27 @@ class DefaultController extends Controller
                 
     		    $em->persist($etude);
     		    $em->flush();
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($request->request->get('firstname')." ".$request->request->get('lastname')." a contacté Junior ESIEE")
+                    ->setFrom('noreply@junioresiee.com')
+                    ->setTo('contact@junioresiee.com')
+                    ->setBody(
+                        $this->renderView(
+                            'JuniorWebsiteBundle:Email:email.html.twig',
+                            array(
+                                'nom' => $request->request->get('lastname'),
+                                'prenom' => $request->request->get('firstname'),
+                                'message' => $request->request->get('message'),
+                                'tel' => $request->request->get('tel'),
+                                'email' => $request->request->get('email'),
+                                'id' => $etude->getId()
+                            )
+                        ),
+                        'text/html'
+                    )
+                ;
+                $this->get('mailer')->send($message);
             }
             catch(\Exception $e)
             {
@@ -85,6 +106,27 @@ class DefaultController extends Controller
                 
     		    $em->persist($etude);
     		    $em->flush();
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($request->request->get('firstname')." ".$request->request->get('lastname')." a contacté Junior ESIEE")
+                    ->setFrom('noreply@junioresiee.com')
+                    ->setTo('contact@junioresiee.com')
+                    ->setBody(
+                        $this->renderView(
+                            'JuniorWebsiteBundle:Email:email.html.twig',
+                            array(
+                                'nom' => $request->request->get('lastname'),
+                                'prenom' => $request->request->get('firstname'),
+                                'message' => $request->request->get('message'),
+                                'tel' => $request->request->get('tel'),
+                                'email' => $request->request->get('email'),
+                                'id' => $etude->getId()
+                            )
+                        ),
+                        'text/html'
+                    )
+                ;
+                $this->get('mailer')->send($message);
             }
             catch(\Exception $e)
             {
