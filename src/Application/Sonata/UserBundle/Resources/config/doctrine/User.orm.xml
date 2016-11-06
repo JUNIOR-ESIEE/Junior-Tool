@@ -28,7 +28,7 @@
             <join-column name="cv_id" referenced-column-name="id" nullable="true" />
         </many-to-one>
 
-        <field name="year" column="year" type="string" length="255" />
+        <field name="year" column="year" type="string" length="255" nullable="true" />
 
         <field name="isAvailable" column="is_available" type="boolean" />
 
