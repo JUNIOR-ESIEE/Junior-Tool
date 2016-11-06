@@ -10,6 +10,28 @@
             <generator strategy="AUTO" />
         </id>
 
+        <many-to-many field="skills" target-entity="Application\Sonata\UserBundle\Entity\Skill" inversed-by="students">
+            <join-table name="users_skills">
+                <join-columns>
+                    <join-column name="user_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="skill_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <one-to-many field="ratings" target-entity="Application\Sonata\UserBundle\Entity\Rating" mapped-by="student">
+        </one-to-many>
+
+        <many-to-one field="cv" target-entity="\Application\Sonata\MediaBundle\Entity\Media">
+            <join-column name="cv_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <field name="year" column="year" type="string" length="255" />
+
+        <field name="isAvailable" column="is_available" type="boolean" />
+
     </entity>
 
 </doctrine-mapping>
