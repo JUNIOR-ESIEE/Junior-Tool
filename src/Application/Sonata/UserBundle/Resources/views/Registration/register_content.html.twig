@@ -1,0 +1,88 @@
+{% block fos_user_content %}
+    <style>
+        .select2-container-multi .select2-choices .select2-search-field input.select2-active {
+            background: #fff no-repeat 100% !important;
+        }
+    </style>
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="{{ path('sonata_admin_dashboard') }}">
+                {% if 'single_image' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
+                    <div>
+                        <img style="width:64px;" src="{{ asset(sonata_admin.adminPool.titlelogo) }}" alt="{{ sonata_admin.adminPool.title }}">
+                    </div>
+                {% endif %}
+                {% if 'single_text' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
+                    <span>{{ sonata_admin.adminPool.title }}</span>
+                {% endif %}
+            </a>
+        </div>
+        <div class="login-box-body">
+            {% block sonata_user_login_form %}
+                {% block sonata_user_login_error %}
+                    {% if not form.vars.valid %}
+                        <div class="alert alert-danger">{{ form_errors(form) }}{{ form_errors(form.username) }}{{ form_errors(form.email) }}{{ form_errors(form.plainPassword.first) }}</div>
+                    {% endif %}
+                {% endblock %}
+                <p class="login-box-msg">Embarquez pour la grande aventure avec <b>Junior ESIEE</b> en vous inscrivant dès à présent.</p>
+                <p class="login-box-msg"></p>
+                <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" role="form">
+                    {{ form_widget(form._token) }}
+                    <div class="form-group has-feedback">
+                        {{ form_widget(form.username, {"attr": {"class": "form-control", "placeholder": "Nom d'utilisateur"}}) }}
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        {{ form_widget(form.email, {"attr": {"class": "form-control", "placeholder": "Email"}}) }}
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        {{ form_widget(form.phone, {"attr": {"class": "form-control", "placeholder": "Numéro de téléphone"}}) }}
+                        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="checkbox">
+                                <div class="icheckbox_square-blue">
+                                    {{ form_widget(form.isAvailable) }}
+                                </div>
+                                Disponible (Pas en stage ou à l'étranger)
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="form-group has-feedback">
+                        {{ form_widget(form.plainPassword.first, {"attr": {"class": "form-control", "placeholder": "Mot de passe"}}) }}
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        {{ form_widget(form.plainPassword.second, {"attr": {"class": "form-control", "placeholder": "Vérification"}}) }}
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <br/>
+                    <div class="form-group has-feedback">
+                        {{ form_widget(form.tags, {"attr": {"class": "form-control", "placeholder": "Compétences"}}) }}
+                        <span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.cv) }}
+                        {{ form_widget(form.cv, {"attr": {"class": "form-group"}}) }}
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</button>
+                        </div>
+                    </div>
+                </form>
+            {% endblock %}
+        </div>
+    </div>
+    <script>
+        $("#sonata_user_registration_form_tags").select2({
+            tags: true,
+            tokenSeparators: [',', ' '],
+        });
+        $(".select2-results").remove();
+    </script>
+{% endblock fos_user_content %}
