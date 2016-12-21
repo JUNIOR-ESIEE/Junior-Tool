@@ -14,3 +14,16 @@ services:
             - ~
             - Junior\EtudeBundle\Entity\Etude
             - ~
+
+    junior_student.admin:
+        class: Junior\EtudeBundle\Admin\StudentAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Suivi d'étude"
+              label: "Étudiant"
+              label_catalogue: "JuniorEtudeBundle"
+        arguments:
+            - ~
+            - Junior\EtudeBundle\Entity\Student
+            - ~

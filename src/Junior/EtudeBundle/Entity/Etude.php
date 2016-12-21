@@ -100,19 +100,19 @@ class Etude
     private $studentsEnrollmentOpen = true;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Junior\EtudeBundle\Entity\Student")
      * @ORM\JoinColumn(nullable=true)
      */
     private $rbu;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Junior\EtudeBundle\Entity\Student")
      * @ORM\JoinColumn(nullable=true)
      */
     private $student;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Junior\EtudeBundle\Entity\Student")
      * @ORM\JoinColumn(nullable=true)
      */
     private $commercial;
@@ -524,11 +524,11 @@ class Etude
     /**
      * Set rbu
      *
-     * @param \Application\Sonata\UserBundle\Entity\User $rbu
+     * @param \Junior\EtudeBundle\Entity\Student $rbu
      *
      * @return Etude
      */
-    public function setRbu(\Application\Sonata\UserBundle\Entity\User $rbu = null)
+    public function setRbu(\Junior\EtudeBundle\Entity\Student $rbu = null)
     {
         $this->rbu = $rbu;
 
@@ -538,7 +538,7 @@ class Etude
     /**
      * Get rbu
      *
-     * @return \Application\Sonata\UserBundle\Entity\User
+     * @return \Junior\EtudeBundle\Entity\Student
      */
     public function getRbu()
     {
@@ -548,11 +548,11 @@ class Etude
     /**
      * Set student
      *
-     * @param \Application\Sonata\UserBundle\Entity\User $student
+     * @param \Junior\EtudeBundle\Entity\Student $student
      *
      * @return Etude
      */
-    public function setStudent(\Application\Sonata\UserBundle\Entity\User $student = null)
+    public function setStudent(\Junior\EtudeBundle\Entity\Student $student = null)
     {
         $this->student = $student;
 
@@ -562,7 +562,7 @@ class Etude
     /**
      * Get student
      *
-     * @return \Application\Sonata\UserBundle\Entity\User
+     * @return \Junior\EtudeBundle\Entity\Student
      */
     public function getStudent()
     {
@@ -572,11 +572,11 @@ class Etude
     /**
      * Set commercial
      *
-     * @param \Application\Sonata\UserBundle\Entity\User $commercial
+     * @param \Junior\EtudeBundle\Entity\Student $commercial
      *
      * @return Etude
      */
-    public function setCommercial(\Application\Sonata\UserBundle\Entity\User $commercial = null)
+    public function setCommercial(\Junior\EtudeBundle\Entity\Student $commercial = null)
     {
         $this->commercial = $commercial;
 
@@ -586,7 +586,7 @@ class Etude
     /**
      * Get commercial
      *
-     * @return \Application\Sonata\UserBundle\Entity\User
+     * @return \Junior\EtudeBundle\Entity\Student
      */
     public function getCommercial()
     {
