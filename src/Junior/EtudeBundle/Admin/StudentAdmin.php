@@ -75,7 +75,7 @@ class StudentAdmin extends Admin
 
     public function toString($object)
     {
-        return $object instanceof Etude
+        return $object instanceof Student
             ? $object->getTitle()
             : $object->getFirstname()." ".$object->getLastname(); // shown in the breadcrumb on the create view
     }
