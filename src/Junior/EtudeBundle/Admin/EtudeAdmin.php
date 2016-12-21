@@ -13,11 +13,7 @@ class EtudeAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('lastname')
-            ->add('firstname')
-            ->add('company')
-            ->add('phone')
-            ->add('email')
+            ->add('client')
             ->add('deposit')
             ->add('title')
             ->add('description')
@@ -33,9 +29,7 @@ class EtudeAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('lastname')
-            ->add('firstname')
-            ->add('company')
+            ->add('client')
             ->add('deposit')
             ->add('title')
             ->add('deadline')
@@ -58,20 +52,8 @@ class EtudeAdmin extends Admin
     {
         $formMapper
             ->with('Client')
-                ->add('lastname', null, array(
-                    'label' => 'Nom de famille',
-                ))
-                ->add('firstname', null, array(
-                    'label' => 'Prénom',
-                ))
-                ->add('company', null, array(
-                    'label' => 'Entreprise',
-                ))
-                ->add('phone', null, array(
-                    'label' => 'Téléphone',
-                ))
-                ->add('email', null, array(
-                    'label' => 'Email',
+                ->add('client', 'sonata_type_model_list', array(
+                    'label' => 'Client'
                 ))
             ->end()
             ->with('Projet')
@@ -128,11 +110,7 @@ class EtudeAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('lastname')
-            ->add('firstname')
-            ->add('company')
-            ->add('phone')
-            ->add('email')
+            ->add('client')
             ->add('deposit')
             ->add('title')
             ->add('description')

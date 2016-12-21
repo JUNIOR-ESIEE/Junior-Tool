@@ -27,3 +27,29 @@ services:
             - ~
             - Junior\EtudeBundle\Entity\Student
             - ~
+
+    junior_client.admin:
+        class: Junior\EtudeBundle\Admin\ClientAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Suivi d'étude"
+              label: "Client"
+              label_catalogue: "JuniorEtudeBundle"
+        arguments:
+            - ~
+            - Junior\EtudeBundle\Entity\Client
+            - ~
+
+    junior_company.admin:
+        class: Junior\EtudeBundle\Admin\CompanyAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Suivi d'étude"
+              label: "Entreprise"
+              label_catalogue: "JuniorEtudeBundle"
+        arguments:
+            - ~
+            - Junior\EtudeBundle\Entity\Company
+            - ~

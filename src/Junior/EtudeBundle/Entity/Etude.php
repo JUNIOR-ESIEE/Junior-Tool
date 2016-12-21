@@ -25,46 +25,6 @@ class Etude
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $firstname;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $lastname;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $company;
-
-    /**
-     * @ORM\Column(type="string", length=20, nullable=true)
-     */
-    private $phone;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $address;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $zipcode;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $city;
-
-    /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $deposit;
@@ -98,6 +58,12 @@ class Etude
      * @ORM\Column(type="boolean")
      */
     private $studentsEnrollmentOpen = true;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Junior\EtudeBundle\Entity\Client")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $client;
 
     /**
      * @ORM\ManyToOne(targetEntity="Junior\EtudeBundle\Entity\Student")
@@ -149,198 +115,6 @@ class Etude
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set firstname
-     *
-     * @param string $firstname
-     *
-     * @return Etude
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    /**
-     * Get firstname
-     *
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     *
-     * @return Etude
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * Set company
-     *
-     * @param string $company
-     *
-     * @return Etude
-     */
-    public function setCompany($company)
-    {
-        $this->company = $company;
-
-        return $this;
-    }
-
-    /**
-     * Get company
-     *
-     * @return string
-     */
-    public function getCompany()
-    {
-        return $this->company;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return Etude
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Etude
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set address
-     *
-     * @param string $address
-     *
-     * @return Etude
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set zipcode
-     *
-     * @param string $zipcode
-     *
-     * @return Etude
-     */
-    public function setZipcode($zipcode)
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    /**
-     * Get zipcode
-     *
-     * @return string
-     */
-    public function getZipcode()
-    {
-        return $this->zipcode;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return Etude
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
     }
 
     /**
@@ -519,6 +293,30 @@ class Etude
     public function getStudentsEnrollmentOpen()
     {
         return $this->studentsEnrollmentOpen;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \Junior\EtudeBundle\Entity\Client $client
+     *
+     * @return Etude
+     */
+    public function setClient(\Junior\EtudeBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \Junior\EtudeBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
     }
 
     /**

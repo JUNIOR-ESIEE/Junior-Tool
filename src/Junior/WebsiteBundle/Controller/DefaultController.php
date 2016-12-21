@@ -5,6 +5,7 @@ namespace Junior\WebsiteBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Junior\EtudeBundle\Entity\Etude;
+use Junior\EtudeBundle\Entity\Client;
 use Application\Sonata\MediaBundle\Entity\Media;
 
 class DefaultController extends Controller
@@ -17,12 +18,27 @@ class DefaultController extends Controller
     	{
             try
             {
-        		$etude = new Etude();
-        		$etude->setFirstname($request->request->get('firstname'));
-        		$etude->setLastname($request->request->get('lastname'));
-        		$etude->setEmail($request->request->get('email'));
-        		$etude->setPhone($request->request->get('tel'));
+                $firstname = $request->request->get('firstname');
+                $lastname = $request->request->get('lastname');
+                $email = $request->request->get('email');
+                $client = $em->getRepository('JuniorEtudeBundle:Client')->findOneBy(array(
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'email' => $email
+                ));
+
+                if($client == NULL)
+                {
+                    $client = New Client();
+                    $client->setFirstname($firstname);
+                    $client->setLastname($lastname);
+                    $client->setEmail($email);
+                }
+                $client->setPhone($request->request->get('tel'));
+
+                $etude = new Etude();
     		    $etude->setDescription($request->request->get('message'));
+                $etude->setClient($client);
 
                 if($request->files->get('file') != NULL)
                 {
@@ -38,6 +54,7 @@ class DefaultController extends Controller
                     $etude->setScopeStatement($media);
                 }
                 
+                $em->persist($client);
     		    $em->persist($etude);
     		    $em->flush();
 
@@ -83,12 +100,27 @@ class DefaultController extends Controller
     	{
             try
             {
-        		$etude = new Etude();
-        		$etude->setFirstname($request->request->get('firstname'));
-        		$etude->setLastname($request->request->get('lastname'));
-        		$etude->setEmail($request->request->get('email'));
-        		$etude->setPhone($request->request->get('tel'));
-    		    $etude->setDescription($request->request->get('message'));
+        		$firstname = $request->request->get('firstname');
+                $lastname = $request->request->get('lastname');
+                $email = $request->request->get('email');
+                $client = $em->getRepository('JuniorEtudeBundle:Client')->findOneBy(array(
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'email' => $email
+                ));
+
+                if($client == NULL)
+                {
+                    $client = New Client();
+                    $client->setFirstname($firstname);
+                    $client->setLastname($lastname);
+                    $client->setEmail($email);
+                }
+                $client->setPhone($request->request->get('tel'));
+
+                $etude = new Etude();
+                $etude->setDescription($request->request->get('message'));
+                $etude->setClient($client);
 
                 if($request->files->get('file') != NULL)
                 {
@@ -103,7 +135,8 @@ class DefaultController extends Controller
                     $mediaManager->save($media);
                     $etude->setScopeStatement($media);
                 }
-                
+
+                $em->persist($client);
     		    $em->persist($etude);
     		    $em->flush();
 
