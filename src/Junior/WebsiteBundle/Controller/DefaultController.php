@@ -34,7 +34,9 @@ class DefaultController extends Controller
                     $client->setLastname($lastname);
                     $client->setEmail($email);
                 }
-                $client->setPhone($request->request->get('tel'));
+                $tel = preg_replace('/\s/', '', $request->request->get('tel'));
+                if(preg_match('/^(0[67]|33[67]|\+33[67]|\+33\(0\)[67])[0-9]{8}$/', $tel) === 1) $client->setMobile($tel);
+                else $client->setPhone($tel);
 
                 $etude = new Etude();
     		    $etude->setDescription($request->request->get('message'));
@@ -116,7 +118,9 @@ class DefaultController extends Controller
                     $client->setLastname($lastname);
                     $client->setEmail($email);
                 }
-                $client->setPhone($request->request->get('tel'));
+                $tel = preg_replace('/\s/', '', $request->request->get('tel'));
+                if(preg_match('/^(0[67]|33[67]|\+33[67]|\+33\(0\)[67])[0-9]{8}$/', $tel) === 1) $client->setMobile($tel);
+                else $client->setPhone($tel);
 
                 $etude = new Etude();
                 $etude->setDescription($request->request->get('message'));
