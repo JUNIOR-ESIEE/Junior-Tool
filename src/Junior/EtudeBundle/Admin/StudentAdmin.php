@@ -13,6 +13,7 @@ class StudentAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('lastname')
             ->add('firstname')
             ->add('email')
@@ -23,6 +24,7 @@ class StudentAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('id', 'text')
             ->add('lastname')
             ->add('firstname')
             ->add('email')
@@ -41,6 +43,9 @@ class StudentAdmin extends Admin
     {
         $formMapper
             ->with('Étudiant')
+                ->add('id', null, array(
+                    'label' => 'Code cantine',
+                ))
                 ->add('lastname', null, array(
                     'label' => 'Nom',
                 ))
@@ -60,7 +65,7 @@ class StudentAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
+            ->add('id', 'text')
             ->add('lastname')
             ->add('firstname')
             ->add('email')
