@@ -16,6 +16,12 @@ class DefaultController extends Controller
         $mediaManager = $this->get('sonata.media.manager.media');
     	if($request->isMethod('POST'))
     	{
+            if($request->request->get('mail') !== "")
+            {
+                return $this->render('JuniorWebsiteBundle:Default:index.html.twig', array(
+                    'error' => 'error'
+                ));
+            }
             try
             {
                 $firstname = $request->request->get('firstname');
@@ -100,6 +106,12 @@ class DefaultController extends Controller
         $mediaManager = $this->get('sonata.media.manager.media');
     	if($request->isMethod('POST'))
     	{
+            if($request->request->get('mail') !== "")
+            {
+                return $this->render('JuniorWebsiteBundle:Default:index.html.twig', array(
+                    'error' => 'error'
+                ));
+            }
             try
             {
         		$firstname = $request->request->get('firstname');
